@@ -49,7 +49,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex flex-col items-center bg-slate-950 w-full min-h-screen">
+    <main className="flex flex-col items-center w-full min-h-screen bg-gradient-radial bg-no-repeat bg-cover">
       <div className="w-80 py-10 px-4 flex flex-col justify-center items-center">
         <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 mb-6">
           <Image
@@ -63,10 +63,7 @@ export default function Home() {
           @pedrosilvadev
         </h1>
         <h2 className="leading-relaxed">
-          Cupom:{" "}
-          <span className="text-slate-400 font-semibold underline">
-            PEDRODEV10
-          </span>
+          Cupom: <span className="font-bold underline">PEDRODEV10</span>
         </h2>
 
         <div className="flex flex-col gap-4 w-full mt-10">
