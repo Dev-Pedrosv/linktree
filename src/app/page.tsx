@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import {
   Linkedin,
@@ -63,6 +64,16 @@ export default function Home() {
     },
   ];
 
+  const handleLink = async (link: Link) => {
+    await fetch("/api/link", {
+      method: "POST",
+      body: JSON.stringify({
+        link: link.href,
+        brand: link.name,
+      }),
+    });
+  };
+
   return (
     <main className="flex flex-col items-center w-full min-h-screen bg-gradient-radial bg-no-repeat bg-cover">
       <div className="w-80 py-10 px-4 flex flex-col justify-center items-center">
@@ -82,7 +93,9 @@ export default function Home() {
         <div className="flex flex-col gap-4 w-full mt-10">
           {links.map((link) => (
             <a
+              onClick={() => handleLink(link)}
               href={link.href}
+              target="_blank"
               className="w-full rounded border-2 border-opacity-50 bg-white/10 border-white hover:cursor-pointer hover:opacity-80"
               key={link.name}
             >

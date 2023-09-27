@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { format } from "date-fns";
+import { Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface ListItem {
   id: string;
   brand: string;
   link: string;
-  createdAt: string;
+  createdAt: Date;
 }
 
 export default function Adm() {
@@ -16,6 +18,26 @@ export default function Adm() {
     accessedIn: "",
   });
   const [list, setList] = useState<ListItem[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const list: ListItem[] = await fetch("/api/link").then((res) =>
+          res.json()
+        );
+        console.log(list);
+        setList(list);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -26,9 +48,11 @@ export default function Adm() {
 
   const filteredList = list.filter((item) => {
     return (
-      item.brand.includes(filters.brand) &&
-      item.link.includes(filters.link) &&
-      item.createdAt.includes(filters.accessedIn)
+      item.brand.toLowerCase().includes(filters.brand.toLowerCase()) &&
+      item.link.toLowerCase().includes(filters.link.toLowerCase()) &&
+      format(new Date(item.createdAt), "yyyy-MM-dd")
+        .toLowerCase()
+        .includes(filters.accessedIn)
     );
   });
 
@@ -38,7 +62,7 @@ export default function Adm() {
 
       <h2 className="mt-4">Filters</h2>
 
-      <div className="flex justify-between gap-3 max-w-[1080px] mt-5">
+      <div className="flex justify-between gap-3 max-w-[1280px] mt-5">
         <input
           className="w-full p-3 rounded outline-none bg-gray-700 focus:outline-gray-500"
           placeholder="Brand"
@@ -60,22 +84,30 @@ export default function Adm() {
         />
       </div>
 
-      <div className="grid grid-cols-3 max-w-[1080px] mt-10 bg-gray-700  rounded-tl-[5px] rounded-tr-[5px] px-4 py-2">
-        <p>Brand</p>
-        <p>Link</p>
-        <p>Accessed in</p>
-      </div>
+      {isLoading && <Loader2 className="animate-spin mx-auto mt-10" />}
 
-      {filteredList.length > 0 && (
-        <div className="border max-w-[1080px] border-slate-700 gap-4 flex flex-col p-4">
-          {filteredList.map((item) => (
-            <div className="grid grid-cols-3" key={item.id}>
-              <p>{item.brand}</p>
-              <p>{item.link}</p>
-              <p>{item.createdAt}</p>
+      {!isLoading && (
+        <>
+          <div className="grid grid-cols-3 max-w-[1280px] mt-10 bg-gray-700  rounded-tl-[5px] rounded-tr-[5px] px-4 py-2">
+            <p>Brand</p>
+            <p>Link</p>
+            <p className="text-end">Accessed in</p>
+          </div>
+
+          {filteredList.length > 0 && (
+            <div className="border max-w-[1280px] border-slate-700 gap-4 flex flex-col p-4">
+              {filteredList.map((item) => (
+                <div className="grid grid-cols-3" key={item.id}>
+                  <p>{item.brand}</p>
+                  <p>{item.link}</p>
+                  <p className="text-end">
+                    {format(new Date(item.createdAt), "dd/MM/yyyy")}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          )}
+        </>
       )}
     </div>
   );
