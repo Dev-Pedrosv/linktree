@@ -7,10 +7,30 @@ import {
   GalleryVerticalEnd,
   Shirt,
   Mail,
+  Glasses,
 } from "lucide-react";
+import { ReactNode } from "react";
 
+interface Link {
+  name: string;
+  icon: ReactNode;
+  href: string;
+  coupon?: string;
+}
 export default function Home() {
-  const links = [
+  const links: Link[] = [
+    {
+      name: "Insurge Brand",
+      icon: <Glasses />,
+      href: "https://insurgebrand.com/",
+      coupon: "pedrodev15",
+    },
+    {
+      name: "Dev.Sincero",
+      icon: <Shirt />,
+      href: "https://www.devsincero.com/",
+      coupon: "pedrodev10",
+    },
     {
       name: "LinkedIn",
       icon: <Linkedin />,
@@ -41,11 +61,6 @@ export default function Home() {
       icon: <Mail />,
       href: "mailto:comercial.pedrosilvadev@gmail.com",
     },
-    {
-      name: "Dev.Sincero",
-      icon: <Shirt />,
-      href: "https://www.devsincero.com/",
-    },
   ];
 
   return (
@@ -62,9 +77,7 @@ export default function Home() {
         <h1 className="text-xl font-semibold leading-relaxed">
           @pedrosilvadev
         </h1>
-        <h2 className="leading-relaxed">
-          Cupom: <span className="font-bold underline">PEDRODEV10</span>
-        </h2>
+        <h2 className="leading-relaxed">Software Engineer</h2>
 
         <div className="flex flex-col gap-4 w-full mt-10">
           {links.map((link) => (
@@ -77,6 +90,11 @@ export default function Home() {
                 {link.icon}
                 <p className="w-full text-center font-medium leading-relaxed ">
                   {link.name}
+                  {link.coupon && (
+                    <span className="text-sm font-semibold block uppercase">
+                      {link.coupon}
+                    </span>
+                  )}
                 </p>
               </div>
             </a>
