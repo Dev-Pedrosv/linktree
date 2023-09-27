@@ -101,7 +101,7 @@ export default function Adm() {
                   <p>{item.brand}</p>
                   <p>{item.link}</p>
                   <p className="text-end">
-                    {format(new Date(item.createdAt), "dd/MM/yyyy")}
+                    {format(new Date(item.createdAt), "dd/MM/yyyy HH:mm")}
                   </p>
                 </div>
               ))}
