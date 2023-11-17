@@ -26,12 +26,12 @@ export default function Home() {
       href: "https://insurgebrand.com/",
       coupon: "pedrodev15",
     },
-    {
-      name: "Dev.Sincero",
-      icon: <Shirt />,
-      href: "https://www.devsincero.com/",
-      coupon: "pedrodev10",
-    },
+    // {
+    //   name: "Dev.Sincero",
+    //   icon: <Shirt />,
+    //   href: "https://www.devsincero.com/",
+    //   coupon: "pedrodev10",
+    // },
     {
       name: "LinkedIn",
       icon: <Linkedin />,
