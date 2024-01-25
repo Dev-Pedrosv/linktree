@@ -6,7 +6,7 @@ import {
   Instagram,
   Youtube,
   GalleryVerticalEnd,
-  Shirt,
+  Vote,
   Mail,
   Glasses,
 } from "lucide-react";
@@ -21,17 +21,16 @@ interface Link {
 export default function Home() {
   const links: Link[] = [
     {
+      name: "Método TAJS",
+      icon: <Vote />,
+      href: "https://cursos.erickwendel.com.br/metodo-tajs-pedro-rike",
+    },
+    {
       name: "Insurge Brand",
       icon: <Glasses />,
       href: "https://insurgebrand.com/",
       coupon: "pedrodev15",
     },
-    // {
-    //   name: "Dev.Sincero",
-    //   icon: <Shirt />,
-    //   href: "https://www.devsincero.com/",
-    //   coupon: "pedrodev10",
-    // },
     {
       name: "LinkedIn",
       icon: <Linkedin />,
