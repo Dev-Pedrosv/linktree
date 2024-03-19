@@ -25,12 +25,7 @@ export default function Home() {
       icon: <Vote />,
       href: "https://cursos.erickwendel.com.br/metodo-tajs-pedro-rike",
     },
-    {
-      name: "Insurge Brand",
-      icon: <Glasses />,
-      href: "https://insurgebrand.com/",
-      coupon: "pedrodev15",
-    },
+   
     {
       name: "LinkedIn",
       icon: <Linkedin />,
