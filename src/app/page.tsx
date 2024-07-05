@@ -7,9 +7,8 @@ import {
   Youtube,
   GalleryVerticalEnd,
   Vote,
-  TicketCheck,
   Mail,
-  Glasses,
+  Ticket,
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -23,7 +22,7 @@ export default function Home() {
   const links: Link[] = [
     {
       name:"CPBR16",
-      icon:<TicketCheck />,
+      icon: <Ticket />,
       href:"https://brasil.campus-party.org/cpbr16/"
     },
     {
