@@ -7,6 +7,7 @@ import {
   Youtube,
   GalleryVerticalEnd,
   Vote,
+  TicketCheck,
   Mail,
   Glasses,
 } from "lucide-react";
@@ -20,6 +21,11 @@ interface Link {
 }
 export default function Home() {
   const links: Link[] = [
+    {
+      name:"CPBR16",
+      icon:<TicketCheck />,
+      href:"https://brasil.campus-party.org/cpbr16/"
+    },
     {
       name: "Método TAJS",
       icon: <Vote />,
