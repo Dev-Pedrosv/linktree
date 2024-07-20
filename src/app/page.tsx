@@ -8,7 +8,7 @@ import {
   GalleryVerticalEnd,
   Vote,
   Mail,
-  Ticket,
+  Book,
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -21,9 +21,9 @@ interface Link {
 export default function Home() {
   const links: Link[] = [
     {
-      name:"CPBR16",
-      icon: <Ticket />,
-      href:"https://brasil.campus-party.org/cpbr16/"
+      name:"Inglês para Devs",
+      icon: <Book />,
+      href:"https://kiwify.app/ABFm3Ol?afid=9JvYzTna"
     },
     {
       name: "Método TAJS",
