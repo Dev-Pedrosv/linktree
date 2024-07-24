@@ -11,6 +11,7 @@ import {
   Book,
 } from "lucide-react";
 import { ReactNode } from "react";
+import { BicepsIcon } from "@/components/biceps-icon";
 
 interface Link {
   name: string;
@@ -21,16 +22,22 @@ interface Link {
 export default function Home() {
   const links: Link[] = [
     {
-      name:"Inglês para Devs",
+      name: "Growth Suplementos",
+      coupon: "PEDRODEV",
+      icon: <BicepsIcon />,
+      href: "https://kiwify.app/ABFm3Ol?afid=9JvYzTna",
+    },
+    {
+      name: "Inglês para Devs",
       icon: <Book />,
-      href:"https://kiwify.app/ABFm3Ol?afid=9JvYzTna"
+      href: "https://kiwify.app/ABFm3Ol?afid=9JvYzTna",
     },
     {
       name: "Método TAJS",
       icon: <Vote />,
       href: "https://cursos.erickwendel.com.br/metodo-tajs-pedro-rike",
     },
-   
+
     {
       name: "LinkedIn",
       icon: <Linkedin />,
