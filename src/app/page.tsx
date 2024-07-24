@@ -25,7 +25,7 @@ export default function Home() {
       name: "Growth Suplementos",
       coupon: "PEDRODEV",
       icon: <BicepsIcon />,
-      href: "https://kiwify.app/ABFm3Ol?afid=9JvYzTna",
+      href: "https://www.gsuplementos.com.br/",
     },
     {
       name: "Inglês para Devs",
